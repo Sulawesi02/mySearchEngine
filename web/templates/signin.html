@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录页面</title>
+  <link rel="stylesheet" href="../static/css/signin.css">
+</head>
+
+<body>
+  <form action="/signin" method="post">
+    <h2 class="form__title">Sign In</h2>
+    <input type="text" name="username" placeholder="用户名" />
+    <input type="password" name="password" placeholder="密码" />
+    <input type="submit" value="登录" />
+    <a href="signup">注册</a>
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          <strong>{{ category|capitalize }}:</strong> {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+# 忽略该文件夹下全部内容
+.idea/
+__pycache__/
+data/file_set/
+data/index_set/
+web/static/snap_shot/
+

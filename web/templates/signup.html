@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>注册页面</title>
+  <link rel="stylesheet" href="../static/css/signup.css">
+</head>
+
+<body>
+  <form action="/signup" method="post">
+    <h2 class="form__title">Sign Up</h2>
+    <input type="text" name="username" placeholder="User" />
+    <input type="email" name="email" placeholder="Email" />
+    <input type="password" name="password" placeholder="Password" />
+    <input type="number" name="age" placeholder="Age" />
+    <input type="text" name="sex" placeholder="Sex" />
+    <input type="text" name="academy" placeholder="Academy" />
+    <input type="submit" value="注册" />
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          <strong>{{ category|capitalize }}:</strong> {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+/* 整体页面布局 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.query-bar {
+    position: relative;
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-container {
+    position: relative;
+    width: 600px;
+}
+
+.query-bar input[type="text"] {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.query-bar button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+.query-bar button:hover {
+    background-color: #0056b3;
+}
+#query-results {
+    display: none;
+}
+ /* 搜索结果区域样式 */
+.query-results {
+    padding: 20px;
+}
+ /* 搜索结果项样式 */
+.query-results article {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.query-results article h3 {
+    margin-top: 0;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+.query-results article h3:hover {
+    text-decoration: underline;
+}
+.query-results article p {
+    margin: 0;
+    color: #666;
+}
+.query-results article a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+.query-results article a:hover {
+    text-decoration: underline;
+}
+
+/* "查看快照"按钮 */
+.view-snapshot-button {
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* 高级搜索弹窗样式 */
+#advanced-query-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none; /* 初始时隐藏 */
+}
+
+.popup-content h2 {
+    text-align: center;
+}
+
+.popup-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-content input,
+.popup-content select {
+    margin: 10px 0;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.popup-content button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
+}
+
+/* 背景遮罩样式 */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none; /* 初始时隐藏 */
+}
+
+#pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pagination-controls button, #pagination-controls a {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    display: inline-block;
+}
+
+#pagination-controls button:disabled, #pagination-controls a.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#pagination-controls a.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+#page-numbers {
+    display: flex;
+    gap: 5px;
+}
+
+/* 查询历史 */
+#query-history {
+    display: none; /* 默认隐藏 */
+    position: absolute;
+    top: 100%; /* 相对于输入框定位 */
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%; /* 与输入框宽度对齐 */
+    margin: 0; /* 移除默认 margin */
+    padding: 0; /* 移除默认 padding */
+    box-sizing: border-box; /* 包括 padding 和 border 在内计算宽度 */
+}
+.query-history-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.query-history-item:hover {
+  background-color: #f0f0f0;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: #333;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>query Results</title>
+  <link rel="stylesheet" href="../static/css/query.css">
+</head>
+
+<body>
+
+  <!-- 搜索区域 -->
+  <section class="query-bar">
+    <!-- 高级搜索按钮 -->
+    <button id="advanced-query-btn" onclick="toggleAdvancedquery()">高级搜索</button>
+    <!-- 搜索框 -->
+    <form action="/common_query" method="post" id="search-form">
+      <div class="input-container">
+        <input type="text" id="query-input" name="query_str" placeholder="请输入查询内容">
+        <!-- 查询历史区域 -->
+        <div id="query-history" class="query-history"></div>
+      </div>
+    </form>
+  <button type="submit" id="query-button">搜索</button>
+  </section>
+
+  <!-- 高级搜索弹窗 -->
+  <div id="advanced-query-popup" style="display: none;">
+    <div class="popup-content">
+      <h2>高级搜索</h2>
+      <!-- 高级搜索表单 -->
+      <form>
+        <label for="advanced-query-input">搜索内容：</label>
+        <input type="text" id="advanced-query-input" name="query_str" placeholder="请输入查询内容">
+        
+        <label for="in_station_query_url_input">站内查询URL：</label>
+        <input type="text" id="in_station_query_url_input" name="query_qur" placeholder="请输入查询URL">
+
+        <div>
+          <label for="query-option">选择查询类型：</label><br>
+          <label><input type="radio" name="query_type" value="instation"> 站内查询</label>
+          <label><input type="radio" name="query_type" value="document"> 文档查询</label>
+          <label><input type="radio" name="query_type" value="phrase"> 短语查询</label>
+          <label><input type="radio" name="query_type" value="wildcard"> 通配查询</label>
+        </div>
+
+        <div style="text-align: center;">
+          <button type="submit" id="advanced-query-button">高级搜索</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 搜索结果 -->
+  <section class="query-results" id="query-results"></section>
+
+  <!-- 分页控件 -->
+  <div id="pagination-controls" style="display: none;">
+      <button id="prev-page" disabled>上一页</button>
+      <div id="page-numbers"></div>
+      <button id="next-page">下一页</button>
+  </div>
+
+  <script src="../static/js/query.js"></script>
+</body>
+
+</html>
